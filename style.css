@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* Loading Screen */
+/* --- Loading Screen (Updated) --- */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -24,51 +24,57 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    animation: fadeOut 1s ease 3s forwards;
+    transition: opacity 0.8s ease, visibility 0.8s ease; /* เพื่อให้ค่อยๆ จางหายตอนกด */
+    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือ */
 }
 
-.loading-logo {
-    animation: logoFadeIn 2s ease forwards;
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .loading-logo img {
     max-width: 300px;
     width: 80vw;
     height: auto;
-    filter: drop-shadow(0 0 30px rgba(102, 255, 204, 0.8));
+    filter: drop-shadow(0 0 30px rgba(102, 255, 204, 0.6));
+    
+    /* Animation: โผล่มา + ลอยขึ้นลง */
+    animation: logoFadeIn 1.5s ease forwards, logoFloat 3s ease-in-out infinite;
+}
+
+.click-hint {
+    color: #66ffcc;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInHint 2s ease 1s forwards;
+    text-transform: uppercase;
 }
 
 @keyframes logoFadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
-    70% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-/* Music Toggle Button */
+@keyframes fadeInHint {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 0.7; transform: translateY(0); }
+}
+
+/* --- Music Toggle Button --- */
 .music-toggle {
     position: fixed;
     bottom: 30px;
@@ -110,15 +116,11 @@ body {
 }
 
 @keyframes musicPulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
-/* Animated Background Particles */
+/* --- Emerald Rain Particles (Updated) --- */
 .bg-particles {
     position: fixed;
     top: 0;
@@ -131,32 +133,34 @@ body {
 
 .particle {
     position: absolute;
-    width: 3px;
-    height: 3px;
-    background: rgba(102, 255, 204, 0.6);
-    border-radius: 50%;
-    animation: float 15s infinite;
-    box-shadow: 0 0 10px rgba(102, 255, 204, 0.8);
+    width: 4px;
+    height: 4px;
+    background: rgba(80, 200, 120, 0.4); /* สีเขียวมรกต */
+    border-radius: 0; /* เป็นสี่เหลี่ยม */
+    top: -10px;
+    
+    animation: emeraldRain linear infinite;
+    box-shadow: 0 0 5px rgba(102, 255, 204, 0.6);
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
+@keyframes emeraldRain {
+    0% {
+        transform: translateY(-10vh) rotate(45deg);
         opacity: 0;
     }
     10% {
-        opacity: 1;
+        opacity: 0.5;
     }
     90% {
-        opacity: 1;
+        opacity: 0.5;
     }
     100% {
-        transform: translateY(-100vh) translateX(50px);
+        transform: translateY(110vh) rotate(225deg);
         opacity: 0;
     }
 }
 
-/* Thai Pattern Border */
+/* --- Thai Pattern Border --- */
 .thai-pattern {
     position: fixed;
     top: 0;
@@ -181,15 +185,11 @@ body {
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
-/* Main Container */
+/* --- Main Container & Structure --- */
 .container {
     position: relative;
     z-index: 10;
@@ -198,10 +198,9 @@ body {
     padding: 80px 20px 40px;
 }
 
-/* Header Section */
 .header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     animation: fadeInDown 1s ease;
 }
 
@@ -222,17 +221,10 @@ body {
 }
 
 @keyframes glow {
-    0%, 100% {
-        text-shadow: 0 0 20px rgba(102, 255, 204, 0.8),
-                     0 0 40px rgba(102, 255, 204, 0.4);
-    }
-    50% {
-        text-shadow: 0 0 30px rgba(102, 255, 204, 1),
-                     0 0 60px rgba(102, 255, 204, 0.6);
-    }
+    0%, 100% { text-shadow: 0 0 20px rgba(102, 255, 204, 0.8), 0 0 40px rgba(102, 255, 204, 0.4); }
+    50% { text-shadow: 0 0 30px rgba(102, 255, 204, 1), 0 0 60px rgba(102, 255, 204, 0.6); }
 }
 
-/* Main Content Grid */
 .profile-grid {
     display: grid;
     grid-template-columns: 400px 1fr;
@@ -240,7 +232,7 @@ body {
     animation: fadeIn 1.5s ease;
 }
 
-/* Character Image Section */
+/* Character Image Section (แก้ไขส่วนนี้) */
 .character-section {
     position: relative;
 }
@@ -248,10 +240,11 @@ body {
 .image-container {
     position: sticky;
     top: 100px;
-    background: linear-gradient(135deg, rgba(102, 255, 204, 0.1), rgba(0, 230, 118, 0.1));
-    border: 2px solid rgba(102, 255, 204, 0.3);
+    /* เอา border ออกเพื่อให้ดูสะอาดตาเหมือนในตัวอย่าง */
+    /* border: 2px solid rgba(102, 255, 204, 0.3); */
     border-radius: 20px;
     padding: 20px;
+    background: linear-gradient(135deg, rgba(102, 255, 204, 0.1), rgba(0, 230, 118, 0.1));
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
                 inset 0 0 30px rgba(102, 255, 204, 0.1);
     transition: all 0.3s ease;
@@ -262,46 +255,31 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 20px 60px rgba(102, 255, 204, 0.3),
                 inset 0 0 50px rgba(102, 255, 204, 0.2);
-    border-color: rgba(102, 255, 204, 0.6);
 }
 
 .character-image {
     width: 100%;
-    height: 500px;
-    background: linear-gradient(135deg, #1a4d3a, #0f3d2e);
+    /* ปรับความสูงเป็น auto เพื่อให้ยืดตามสัดส่วนรูป */
+    height: auto;
+    /* background: linear-gradient(135deg, #1a4d3a, #0f3d2e);  เอาออก */
     border-radius: 15px;
-    display: flex;
+    /* ลบ flex ออกเพราะไม่จำเป็นสำหรับ img */
+    /* display: flex; 
     align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 1.2rem;
+    justify-content: center; */
     position: relative;
     overflow: hidden;
+    /* ลบสีตัวอักษรเดิม */
+    /* color: rgba(255, 255, 255, 0.3); 
+    font-size: 1.2rem; */
 }
 
-.character-image::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(102, 255, 204, 0.1),
-        transparent
-    );
-    animation: scan 3s linear infinite;
-}
-
-@keyframes scan {
-    0% {
-        transform: translateX(-100%) translateY(-100%);
-    }
-    100% {
-        transform: translateX(100%) translateY(100%);
-    }
+/* เพิ่ม CSS สำหรับรูปภาพ */
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ให้รูปภาพถูกครอบตัดให้พอดีกรอบโดยไม่เสียสัดส่วน */
+    border-radius: inherit; /* ให้มุมโค้งตามกรอบพ่อ */
 }
 
 /* Info Section */
@@ -364,14 +342,8 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.2);
-    }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
 }
 
 .info-value {
@@ -404,98 +376,35 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .profile-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .image-container {
-        position: relative;
-        top: 0;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .header h1 {
-        font-size: 2.5rem;
-    }
+    .profile-grid { grid-template-columns: 1fr; gap: 30px; }
+    .image-container { position: relative; top: 0; max-width: 500px; margin: 0 auto; }
+    .header h1 { font-size: 2.5rem; }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 60px 15px 30px;
+    .container { padding: 60px 15px 30px; }
+    .header h1 { font-size: 2rem; }
+    .header .subtitle { font-size: 1rem; }
+    .character-image { 
+        height: 300px; /* กำหนดความสูงสำหรับมือถือให้เหมาะสม */
     }
-
-    .header h1 {
-        font-size: 2rem;
-    }
-
-    .header .subtitle {
-        font-size: 1rem;
-    }
-
-    .character-image {
-        height: 400px;
-    }
-
-    .info-card {
-        padding: 20px;
-    }
-
-    .info-label {
-        font-size: 0.85rem;
-    }
-
-    .info-value {
-        font-size: 1rem;
-    }
-
-    .footer-logo {
-        font-size: 1.5rem;
-    }
-
-    .music-toggle {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .music-icon,
-    .mute-icon {
-        width: 24px;
-        height: 24px;
-    }
+    .info-card { padding: 20px; }
+    .music-toggle { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+    .music-icon, .mute-icon { width: 24px; height: 24px; }
 }

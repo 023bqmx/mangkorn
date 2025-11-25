@@ -3,111 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heaven 5.0 - Character Portfolio</title>
+    <title>KhoKho</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
-        <div class="loading-logo">
-            <img src="logo.png" alt="Heaven 5.0 Logo" id="loadingLogo">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="logo.png" alt="Heaven 5.0 Logo">
+            </div>
+            <p class="click-hint">Click anywhere to Enter</p>
         </div>
     </div>
 
-    <!-- Background Music -->
     <audio id="bgMusic" loop>
         <source src="What I imagine when I hear this OST.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Music Control Button -->
     <button class="music-toggle" id="musicToggle" title="เปิด/ปิดเพลง">
-        <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 18V5l12-2v13"></path>
+        <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"> <path d="M9 18V5l12-2v13"></path>
             <circle cx="6" cy="18" r="3"></circle>
             <circle cx="18" cy="16" r="3"></circle>
         </svg>
-        <svg class="mute-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-            <path d="M9 18V5l12-2v13"></path>
+        <svg class="mute-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M9 18V5l12-2v13"></path>
             <circle cx="6" cy="18" r="3"></circle>
             <circle cx="18" cy="16" r="3"></circle>
             <line x1="1" y1="1" x2="23" y2="23"></line>
         </svg>
     </button>
 
-    <!-- Thai Pattern Border -->
     <div class="thai-pattern"></div>
 
-    <!-- Animated Background -->
     <div class="bg-particles" id="particles"></div>
 
-    <!-- Main Container -->
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <h1>บัตรประจำตัวเทวะ</h1>
-            <p class="subtitle">Divine Personnel Profile System</p>
+            <h1>บัตรประจำตัวพนักงาน</h1>
+            <p class="subtitle">Employee ID card</p>
         </div>
 
-        <!-- Profile Grid -->
         <div class="profile-grid">
-            <!-- Character Image Section -->
             <div class="character-section">
                 <div class="image-container">
                     <div class="character-image">
-                        [ภาพตัวละคร]
+                        <img src="cha1.jpg" alt="ภาพตัวละคร">
                     </div>
                 </div>
             </div>
 
-            <!-- Info Section -->
             <div class="info-section">
                 <div class="info-card" style="animation-delay: 0.1s">
                     <div class="info-label">ชื่อเสียงเรียงนาม</div>
-                    <div class="info-value">[ระบุชื่อตัวละคร]</div>
+                    <div class="info-value">พระอินทร์ , อมรินทร์</div>
                 </div>
 
                 <div class="info-card" style="animation-delay: 0.2s">
                     <div class="info-label">อายุ</div>
-                    <div class="info-value">[ระบุอายุ]</div>
+                    <div class="info-value">๓๖,๐๐๐,๐๐๐ ปีมนุษย์</div>
                 </div>
 
                 <div class="info-card" style="animation-delay: 0.3s">
-                    <div class="info-label">แผนกที่ท่านอยู่</div>
-                    <div class="info-value">[ระบุแผนก]</div>
+                    <div class="info-label">แผนกที่อยู่</div>
+                    <div class="info-value">บริษัทสวรรค์ดาวดึงส์ จำกัด ตำเเหน่ง ประธานบริหารสูงสุด</div>
                 </div>
 
                 <div class="info-card" style="animation-delay: 0.4s">
-                    <div class="info-label">ประวัติพอสังเขป</div>
-                    <div class="info-value">[ระบุประวัติ]</div>
+                    <div class="info-label">ประวัติ</div>
+                    <div class="info-value">นานนัก นานเสียจนกาลเวลามนุษย์ไม่อาจนับได้ ก่อนที่เทคโนโลยี Heaven 5.0 จะกำเนิดก่อนจะมีอินทรเนตรที่ส่องได้ทั่วไตรภพ ก่อนที่บัญชี Intragram 
+                        จะส่งข่าวสารไปถึงหมู่เทพทั่วสวรรค์ ครั้งนั้น พระอินทร์ทรงยังเป็น “ท้าวสหัสนัยน์ผู้ปกครองสวรรค์ ผู้ครองบัลลังก์ไพชยนต์กลางนครดาวดึงส์ งามโอภาสด้วยแก้วเจ็ดประการ
+                        อานุภาพมากด้วยเดชาอาญาสิทธิ์จักรวาล ทว่า ยิ่งสูงยิ่งหนาว ยิ่งยิ่งครองทิพยอำนาจ กิจธุระยิ่งผูกพันด้วยทุกข์ของสรรพชีวิต แต่โลกมนุษย์เปลี่ยนไป เสียงคำพร เสียงบวงสรวงเบาบางลง 
+                        มนุษย์หันหน้าเข้าสู่ยุคดิจิทัล เทพทั้งหลายที่ยังอยู่ในเเบบโบราณเริ่มไม่อาจรับรู้เสียงเรียกหาได้ทันกาล เมื่อความศรัทธาเปลี่ยนสู่ยุคใหม่ พระองค์จึงตัดสินพระทัยครั้งใหญ่ที่สุดนับแต่มหายุค 
+                        ทรงเสด็จลงยังปริมณฑลโลกมนุษย์ เพื่อศึกษาวิถีปัญญาใหม่เทคโนโลยีที่มนุษย์สร้าง เสื้อผ้าทรงเครื่องทองถูกเปลี่ยนเป็นสูทสีเขียวเรียบสะอาด สังวาลย์รัตนะแบบพรหมยุคเก่าถูกทิ้งไว้เบื้องหลัง 
+                        เหลือเพียงเรือนกายหนุ่มวัยยี่สิบต้น ดังมนุษย์ผู้เพิ่งเฉียดผ่านวัยเยาว์มาหมาดๆ ในร่างจำแลงนั้น พระอินทร์ได้เรียนรู้โลกมนุษย์เสียใหม่ จึงทรงเริ่มวางโครงสร้าง “Heaven 5.0”ระบบสื่อสาร 
+                        ฟังเสียงและตอบมนุษย์อย่างทันโลกเพราะพระองค์เชื่อ ว่าเทพที่อยู่สูงเกินไป อาจไม่ได้ยินเสียงร้องขอของผู้ตกต่ำ ดังนั้น นับแต่นั้นมา พระอินทร์ในร่างหนุ่มดั่งภาพนี้ คือเจ้าหลักการบริหารสวรรค 
+                        ผู้สร้างระบบบุญดิจิทัล ผู้กำกับงานผ่านหน้าจอทิพย์ ผู้เปิดบัญชี Intragram เพื่อสื่อถึงเทพทั้งหลาย ศาสตราวุธคู่กาย : วชิราวุธ (วัชระ) (สายฟ้าอสนีบาต) , เอราวัณ , 
+                        พระขรรค์ (มีชื่อเรียกว่า ปรัญชะ) , สังข์ , จักร , บ่วงบาศ ，ธนูศรอินทร์
+                    </div>
                 </div>
 
                 <div class="info-card" style="animation-delay: 0.5s">
                     <div class="info-label">ศาสตราวุธคู่กาย</div>
-                    <div class="info-value">[ระบุอาวุธ - จำกัด 1 ชิ้น]</div>
+                    <div class="info-value">วชิราวุธ, เอราวัณ, พระขรรค์, สังข์, จักร, บ่วงบาศ，ธนูศรอินทร์</div>
                 </div>
 
                 <div class="info-card" style="animation-delay: 0.6s">
                     <div class="info-label">งานอดิเรก</div>
-                    <div class="info-value">[ระบุงานอดิเรก]</div>
+                    <div class="info-value">การช่วยเหลือสรรพสัตว์ และโลกมนุษย์ (จิตอาสา) เมื่อพระแท่น ปัณฑุกัมพลศิลาอาสน์ (แท่น หินอ่อนของพระอินทร์) แข็งกระด้างหรือร้อนขึ้น 
+                        จะเป็นสัญญาณว่ามีผู้ ทำความดีเดือดร้อน หรือมีภัยเกิดขึ้นบนโลก พระอินทร์จะเสด็จลงมา ช่วยเหลือ, ปัจจุบัน ตามล่าไอเทมแฟชั่นลิมิเต็ดพระอินทร์เป็นสายช้อปตัวพ่อ ชอบของหายาก 
+                        ชอบขี่รถซิ่งชมวิวชิลๆ แม้จะมีรถม้าเทพเป็นพาหนะประจำตำแหน่ง แต่พอลงโลกมนุษย์ชอบ ขี่บิ๊กไบค์ออกต่างจังหวัด ขับรถสปอร์ตเปิดประทุน วิ่งเส้นริมทะเล ตอนพระอาทิตย์ตก 
+                        เพราะ “ฟีลมันได้” แอบจีบสาวบ้าง หนุ่มบ้าง แบบไม่เปิดเผยตัวเต็มร้อย มีนิสัยขี้เล่น ชอบลงมาชมโลกมนุษย์แล้วปลอมตัวเป็นหนุ่มวัย 20 ต้นๆ ชอบคุย ชอบหยอก ชอบขี้อ้อน
+                    </div>
                 </div>
 
                 <div class="info-card" style="animation-delay: 0.7s">
                     <div class="info-label">สิ่งที่โปรด</div>
-                    <div class="info-value">[ระบุสิ่งที่ชอบ]</div>
+                    <div class="info-value">วาจาและศีลธรรม พูดคำสัตย์จริงตลอด พูดจาอ่อนหวาน ไม่พูดส่อเสียด ประพฤติอ่อนน้อมถ่อมตนต่อผู้ใหญ่ เหล้าหมักผลไม้ รถซูเปอร์คาร์สมรรถนะสูง รถสปอร์ตยุค 90</div>
                 </div>
 
                 <div class="info-card" style="animation-delay: 0.8s">
                     <div class="info-label">สิ่งที่มิโปรด</div>
-                    <div class="info-value">[ระบุสิ่งที่ไม่ชอบ]</div>
+                    <div class="info-value">ความตระหนี่ถี่เหนียว , การพูดจาหยาบคาย/ส่อเสียด , ความอกตัญญู </div>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
             <div class="footer-logo">Heaven 5.0</div>
+            <div class="footer-text">© Made by Kunchaing.</div>
         </div>
     </div>
 
