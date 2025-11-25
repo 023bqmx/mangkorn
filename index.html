@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heaven 5.0 - Character Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <img src="logo.png" alt="Heaven 5.0 Logo" id="loadingLogo">
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="What I imagine when I hear this OST.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <button class="music-toggle" id="musicToggle" title="เปิด/ปิดเพลง">
+        <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+        <svg class="mute-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+        </svg>
+    </button>
+
+    <!-- Thai Pattern Border -->
+    <div class="thai-pattern"></div>
+
+    <!-- Animated Background -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>บัตรประจำตัวเทวะ</h1>
+            <p class="subtitle">Divine Personnel Profile System</p>
+        </div>
+
+        <!-- Profile Grid -->
+        <div class="profile-grid">
+            <!-- Character Image Section -->
+            <div class="character-section">
+                <div class="image-container">
+                    <div class="character-image">
+                        [ภาพตัวละคร]
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-card" style="animation-delay: 0.1s">
+                    <div class="info-label">ชื่อเสียงเรียงนาม</div>
+                    <div class="info-value">[ระบุชื่อตัวละคร]</div>
+                </div>
+
+                <div class="info-card" style="animation-delay: 0.2s">
+                    <div class="info-label">อายุ</div>
+                    <div class="info-value">[ระบุอายุ]</div>
+                </div>
+
+                <div class="info-card" style="animation-delay: 0.3s">
+                    <div class="info-label">แผนกที่ท่านอยู่</div>
+                    <div class="info-value">[ระบุแผนก]</div>
+                </div>
+
+                <div class="info-card" style="animation-delay: 0.4s">
+                    <div class="info-label">ประวัติพอสังเขป</div>
+                    <div class="info-value">[ระบุประวัติ]</div>
+                </div>
+
+                <div class="info-card" style="animation-delay: 0.5s">
+                    <div class="info-label">ศาสตราวุธคู่กาย</div>
+                    <div class="info-value">[ระบุอาวุธ - จำกัด 1 ชิ้น]</div>
+                </div>
+
+                <div class="info-card" style="animation-delay: 0.6s">
+                    <div class="info-label">งานอดิเรก</div>
+                    <div class="info-value">[ระบุงานอดิเรก]</div>
+                </div>
+
+                <div class="info-card" style="animation-delay: 0.7s">
+                    <div class="info-label">สิ่งที่โปรด</div>
+                    <div class="info-value">[ระบุสิ่งที่ชอบ]</div>
+                </div>
+
+                <div class="info-card" style="animation-delay: 0.8s">
+                    <div class="info-label">สิ่งที่มิโปรด</div>
+                    <div class="info-value">[ระบุสิ่งที่ไม่ชอบ]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">Heaven 5.0</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
