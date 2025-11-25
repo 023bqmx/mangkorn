@@ -296,12 +296,29 @@ body {
     padding: 25px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    animation: slideInRight 0.8s ease;
+    
+    /* --- ตั้งค่าเริ่มต้นให้ซ่อนอยู่ --- */
+    opacity: 0;
+    transform: translateY(50px); /* ดันลงไปข้างล่างหน่อย */
+    
+    /* ใช้ Transition แทน Animation เพื่อความลื่นไหลและเบาเครื่องกว่า */
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* บอก Browser ให้เตรียมการ์ดจอไว้ เพื่อลดอาการกระตุก */
+    will-change: opacity, transform;
+    
     position: relative;
     overflow: hidden;
 }
 
+/* คลาสที่จะเติมเข้ามาเมื่อเลื่อนจอไปถึง */
+.info-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ... (ส่วน Hover Effect คงเดิม) ... */
 .info-card::before {
     content: '';
     position: absolute;
@@ -318,9 +335,11 @@ body {
 }
 
 .info-card:hover {
-    transform: translateX(10px);
+    /* เอา transform: translateX ออกเพื่อไม่ให้ตีกับ Scroll Reveal */
     border-color: rgba(102, 255, 204, 0.5);
     box-shadow: 0 12px 48px rgba(102, 255, 204, 0.2);
+    /* ขยับแค่นิดเดียวพอตอนเอาเมาส์ชี้ */
+    transform: translateY(-5px); 
 }
 
 .info-label {
@@ -413,15 +432,12 @@ body {
 
 /* --- Expandable Content (Read More) --- */
 .expandable-content {
-    /* ความสูงตอนยังไม่กด (ประมาณ 4-5 บรรทัด) */
     max-height: 120px; 
     overflow: hidden;
     position: relative;
-    /* อนิเมชั่นเวลายืดหด */
     transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* เพิ่มเงาจางๆ ด้านล่างให้รู้ว่ามีต่อ */
 .expandable-content:not(.expanded)::after {
     content: '';
     position: absolute;
@@ -433,16 +449,15 @@ body {
     pointer-events: none;
 }
 
-/* ตอนขยายแล้ว */
 .expandable-content.expanded {
-    max-height: 1000px; /* ตั้งไว้เยอะๆ ให้พอดีกับข้อความ */
+    /* ค่าเยอะๆ เพื่อรองรับมือถือตามที่แก้ไป */
+    max-height: 5000px; 
 }
 
 .expandable-content.expanded::after {
     display: none;
 }
 
-/* ปุ่มอ่านเพิ่มเติม */
 .read-more-btn {
     background: rgba(102, 255, 204, 0.1);
     border: 1px solid rgba(102, 255, 204, 0.3);
@@ -455,10 +470,4 @@ body {
     padding: 8px 20px;
     transition: all 0.3s ease;
     display: inline-block;
-}
-
-.read-more-btn:hover {
-    background: rgba(102, 255, 204, 0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(102, 255, 204, 0.2);
 }
