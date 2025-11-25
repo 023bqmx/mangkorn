@@ -105,3 +105,23 @@ window.addEventListener('scroll', () => {
         particle.style.transform = `translateY(${scrolled * speed}px) rotate(45deg)`;
     });
 });
+
+document.querySelectorAll('.read-more-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        // หาตัวกล่องข้อความที่อยู่ก่อนหน้าปุ่มนี้
+        const content = button.previousElementSibling;
+        
+        // สลับสถานะ class 'expanded'
+        content.classList.toggle('expanded');
+        
+        // เปลี่ยนข้อความบนปุ่ม
+        if (content.classList.contains('expanded')) {
+            button.textContent = 'ย่อลง';
+        } else {
+            button.textContent = 'อ่านเพิ่มเติม';
+            
+            // (Optional) ถ้ากดย่อแล้วอยากให้เลื่อนกลับไปตำแหน่งเดิม uncomment บรรทัดล่างนี้ครับ
+            // content.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+});
